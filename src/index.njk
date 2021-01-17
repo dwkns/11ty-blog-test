@@ -1,0 +1,16 @@
+---
+title: "Title from index.njk"
+some_var: "some_var from the template"
+project_name: "blog-test"
+---
+{% import '_components/_components.njk' as components %}
+{% extends 'page.njk' %}
+
+{% block body %}
+  <h2 class="text-4xl py-4">Homepage of  {{project_name}}</h2>
+  <p>{{ some_var }}</p>
+  <p>{{a_different_var}}</p>
+  {{ components.array_to_paragrpah(
+    ["paragraph 1","paragraph 2","paragraph 3","paragraph 4"]
+  )}}
+{% endblock %}

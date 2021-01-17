@@ -1,0 +1,10 @@
+{
+  "name": "11ty-tailwind-rollup-starter",
+  "description": "Starter project for 11ty",
+  "url": "https://yourUrl.com",
+  "baseUrl": "/",
+  "author": {
+    "handle": "@dwkns",
+    "name": "dwkns"
+  }
+}
