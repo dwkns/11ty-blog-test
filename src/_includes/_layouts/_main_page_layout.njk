@@ -6,6 +6,7 @@
   <title>Eleventy Blog</title> 
   <link rel="stylesheet" href="/assets/main.bundle.css?version={{ utils.version }}">
   <script defer="defer" src="/assets/main.bundle.js?version={{ utils.version }}"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head> 
 <body class="container mx-auto"> 
   <header class="my-8 border-b-2 pb-8">
@@ -20,5 +21,16 @@
     {{ content | safe }}
   </main> 
   <footer class="my-8 border-t-2 pt-8">Site Footer</footer> 
+  <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body> 
 </html>
