@@ -12,20 +12,20 @@ export default {
     sourcemap: false,
     format: 'iife',
     name: 'main',
-    file: 'dist/assets/main.bundle.js',
+    file: 'dist/assets/main.bundle.js'
   },
   plugins: [
     replace({
-      DEV_MODE: dev,
+      DEV_MODE: dev
     }),
     svg(),
     postcss({
       extract: path.resolve('dist/assets/main.bundle.css'),
-      minimize: !dev,
+      minimize: !dev
     }),
-    !dev && terser(),
+    !dev && terser()
   ],
   watch: {
-    clearScreen: false,
-  },
+    clearScreen: false
+  }
 };

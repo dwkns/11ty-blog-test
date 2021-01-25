@@ -1,0 +1,15 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: assets/uploads
+
+collections:
+  - label: "Pages"
+    name: "Pages"
+    files: 
+      - name: 'home'
+        label: 'home'
+        file: './src/index.json'
+        fields:
+          - { label: "Title", name: "someString", widget: "string" }

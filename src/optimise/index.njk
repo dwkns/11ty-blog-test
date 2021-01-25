@@ -1,0 +1,64 @@
+---
+title: My Posts
+layout: _main_page_layout.njk
+pagination:
+  data: collections.blogPosts
+  size: 4
+---
+
+{% import "_components/_components.njk" as components with context %}
+
+{{ someString }}
+
+<h2 class="text-2xl mt-8">Loop through collection</h2>
+{% for item in collections.blogPosts %}
+  <li><a class="link" href="{{ item.url | url }}">{{ item.data.title }}</a>
+  {# <p>inputPath: {{ item.inputPath}}</p>
+  <p>fileSlug: {{ item.fileSlug}}</p>
+  <p>outputPath: {{ item.outputPath}}</p>
+  <p>url: {{ item.url}}</p>
+  <p>date: {{ item.date}}</p>
+  <p>data: {{ item.data}}</p>
+  <p>templateContent: {{ item.templateContent}}</p> #}
+  </li>
+{% endfor %}
+
+<h2 class="text-2xl mt-8">Loop through pagination</h2>
+{% for item in pagination.items %}
+  <li><a class="link" href="{{ item.url | url }}">{{ item.data.title }}</a>
+  <p>summary: {{ item.data.summary}}</p>
+  <p>tags: {{ item.data.tags}}</p>
+  <p>url: {{ item.url}}</p>
+  <p>Author: {{ item.data.author}}</p>
+  <p>date: {{ item.date}}</p>
+  </li>
+{% endfor %}
+
+
+{% if pagination.pages.length > 1 %}
+<nav aria-labelledby="my-pagination" class="mt-8">
+{{components.pagination_controls()}}
+</nav>
+<h2 class="text-2xl mt-8">Pagination controls</h2>
+{% endif %}
+
+<h2 class="text-2xl mt-8">Data from the pagination object</h2>
+</ol>
+  <p>numbner of pages: {{ pagination.pages.length }}</p>
+  <p>Items: {{ pagination.items }}</p>
+  <p>pageNumber: {{pagination.pageNumber}}</p>
+  <p>nextPageHref: {{pagination.nextPageHref}}</p>
+  <p>previousPageHref: {{pagination.previousPageHref}}</p>
+  <p>firstPageHref: {{pagination.firstPageHref}}</p>
+  <p>lastPageHref: {{pagination.lastPageHref}}</p>
+  <p>hrefs: {{pagination.hrefs}}</p>
+  <p>nextPageLink: {{pagination.nextPageLink}}</p>
+  <p>previousPageLink: {{pagination.previousPageLink}}</p>
+  <p>firstPageLink: {{pagination.firstPageLink}}</p>
+  <p>lastPageLink: {{pagination.lastPageLink}}</p>
+  <p>links: {{pagination.links}}</p>
+  <p>pageLinks: {{pagination.pageLinks}}</p>
+  <p>size: {{pagination.size}}</p>
+</ol>
+
+
